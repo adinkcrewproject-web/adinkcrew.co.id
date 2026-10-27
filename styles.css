@@ -147,13 +147,14 @@ button, .button, .nav-cta, .floating-whatsapp, .main-nav a { -webkit-tap-highlig
 }
 
 
-/* ADINK CREW — Premium Scroll Effects */
+/* ADINK CREW — Premium Scroll Effects FIX */
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
 }
 
+/* Konten animasi awal */
 .js-scroll .hero-content,
 .js-scroll .hero-visual,
 .js-scroll .section-heading,
@@ -170,16 +171,19 @@ html {
     transform 700ms cubic-bezier(.2, .65, .25, 1);
 }
 
+/* Konten kembali terlihat */
 .js-scroll .is-revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Jeda animasi kartu */
 .js-scroll .service-card,
 .js-scroll .inspiration-tile {
   transition-delay: var(--scroll-delay, 0ms);
 }
 
+/* Gerakan foto */
 .hero-photo,
 .service-image,
 .inspiration-photo,
@@ -195,6 +199,32 @@ html {
   filter: saturate(1.04);
 }
 
+/* Perlindungan akun media sosial */
+.social-links {
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.social-links a,
+.social-links svg {
+  visibility: visible;
+}
+
+/* Perlindungan logo header dan footer */
+.brand-logo,
+.footer-logo {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* Aksesibilitas */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

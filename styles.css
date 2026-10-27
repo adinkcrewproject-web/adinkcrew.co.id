@@ -145,3 +145,79 @@ button, .button, .nav-cta, .floating-whatsapp, .main-nav a { -webkit-tap-highlig
     font-size: 11px;
   }
 }
+
+
+/* ADINK CREW — Premium Scroll Effects */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+.js-scroll .hero-content,
+.js-scroll .hero-visual,
+.js-scroll .section-heading,
+.js-scroll .service-card,
+.js-scroll .inspiration-tile,
+.js-scroll .about-content,
+.js-scroll .about-art,
+.js-scroll .contact-copy,
+.js-scroll .contact-form-wrap {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(.2, .65, .25, 1);
+}
+
+.js-scroll .is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js-scroll .service-card,
+.js-scroll .inspiration-tile {
+  transition-delay: var(--scroll-delay, 0ms);
+}
+
+.hero-photo,
+.service-image,
+.inspiration-photo,
+.about-art-image {
+  transition:
+    transform 800ms cubic-bezier(.2, .65, .25, 1),
+    filter 500ms ease;
+}
+
+.service-card:hover .service-image,
+.inspiration-tile:hover .inspiration-photo {
+  transform: scale(1.02);
+  filter: saturate(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-scroll .hero-content,
+  .js-scroll .hero-visual,
+  .js-scroll .section-heading,
+  .js-scroll .service-card,
+  .js-scroll .inspiration-tile,
+  .js-scroll .about-content,
+  .js-scroll .about-art,
+  .js-scroll .contact-copy,
+  .js-scroll .contact-form-wrap {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-photo,
+  .service-image,
+  .inspiration-photo,
+  .about-art-image {
+    transition: none;
+  }
+}

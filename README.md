@@ -25,11 +25,3 @@ Website statis untuk ADINK CREW Furniture, Brebes, Jawa Tengah.
 
 ## Mobile-friendly update
 CSS includes improved small-screen spacing, touch targets, form sizing, responsive imagery, and a floating WhatsApp button. Test at common phone widths before publishing.
-
-
-## Perbaikan versi ini
-- Memperbaiki lokasi file logo: logo disalin ke `assets/adink-crew-logo.png`, sesuai dengan path yang dipakai halaman.
-- Favicon tersedia pada `assets/favicon.svg`.
-- Tombol WhatsApp mengambang menggunakan ikon SVG yang lebih rapi, warna hijau WhatsApp, bentuk pill, dan state hover/focus.
-- Palet visual diselaraskan ke ivory, charcoal, dan caramel.
-- Tetap berupa website statis; foto inspirasi memerlukan koneksi internet.

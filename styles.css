@@ -93,3 +93,29 @@ button, .button, .nav-cta, .floating-whatsapp, .main-nav a { -webkit-tap-highlig
 .footer-logo{width:50px;height:44px}
 .brand{gap:10px}
 @media(max-width:680px){.brand-logo{width:47px;height:43px}.footer-logo{width:45px;height:40px}.brand{gap:8px}}
+
+
+/* ADINK CREW polish: corrected palette, real logo asset and accessible WhatsApp action */
+:root{--cream:#f7f5f0;--paper:#fffdf9;--sand:#e8e0d4;--wood:#b68a58;--brown:#292723;--ink:#292723;--muted:#6f6a61;--line:#ded7cd;--white:#fffdf9}
+.announcement{background:#292723;color:#f7f5f0}
+.site-header{background:rgba(255,253,249,.97);border-bottom-color:#e7e0d6}
+.brand{gap:11px;min-width:0}
+.brand-logo{display:block;width:112px;height:78px;object-fit:contain;object-position:center;flex:0 0 auto;background:transparent}
+.brand-copy strong{color:#292723;letter-spacing:.13em}
+.brand-copy small{color:#8b6a46;letter-spacing:.14em}
+.button-dark,.nav-cta{background:#292723;color:#fffdf9}
+.button-dark:hover,.nav-cta:hover{background:#45392e}
+.button-light{background:#f7f5f0;color:#292723}
+.hero-photo{background-color:#e8e0d4}
+.inspiration{background:#f0ebe3}
+.about-stamp{background:#fffdf9;border-color:#ded7cd}
+.contact{background:#292723}
+.contact-form-wrap{background:#fffdf9}
+.floating-whatsapp{position:fixed;right:22px;bottom:22px;z-index:30;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 18px;border-radius:999px;background:#168653;color:#fff;box-shadow:0 8px 28px rgba(25,48,34,.24);font-size:13px;font-weight:700;letter-spacing:.01em;transition:transform .2s,box-shadow .2s,background .2s}
+.floating-whatsapp:hover{background:#117347;transform:translateY(-3px);box-shadow:0 12px 32px rgba(25,48,34,.3)}
+.whatsapp-icon{width:25px;height:25px;display:block;flex:0 0 auto}
+.whatsapp-label{display:block;font-size:12px;line-height:1.2}
+.floating-whatsapp:focus-visible,.button:focus-visible,.main-nav a:focus-visible{outline:3px solid #d7b27d;outline-offset:4px}
+.footer-logo{width:112px;height:78px;object-fit:contain}
+@media(max-width:680px){.site-header{height:74px;padding:0 18px}.brand-logo{width:100px;height:70px}.brand{gap:8px}.main-nav{top:73px}.floating-whatsapp{right:14px;bottom:14px;min-height:50px;padding:11px 15px;gap:8px}.whatsapp-icon{width:23px;height:23px}.whatsapp-label{font-size:11px}.hero-photo{background-position:center}.contact-form-wrap{border-radius:4px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}

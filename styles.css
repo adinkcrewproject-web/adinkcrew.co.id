@@ -147,77 +147,93 @@ button, .button, .nav-cta, .floating-whatsapp, .main-nav a { -webkit-tap-highlig
 }
 
 
-/* ADINK CREW — Premium Scroll Effects */
+/* ADINK CREW — Premium Motion tanpa efek loading */
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-.js-scroll .hero-content,
-.js-scroll .hero-visual,
-.js-scroll .section-heading,
-.js-scroll .service-card,
-.js-scroll .inspiration-tile,
-.js-scroll .about-content,
-.js-scroll .about-art,
-.js-scroll .contact-copy,
-.js-scroll .contact-form-wrap {
-  opacity: 0;
-  transform: translateY(22px);
-  transition:
-    opacity 700ms ease,
-    transform 700ms cubic-bezier(.2, .65, .25, 1);
-}
-
-.js-scroll .is-revealed {
+/* Pastikan seluruh konten langsung terlihat */
+.hero-content,
+.hero-visual,
+.section-heading,
+.service-card,
+.inspiration-tile,
+.about-content,
+.about-art,
+.contact-copy,
+.contact-form-wrap {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-.js-scroll .service-card,
-.js-scroll .inspiration-tile {
-  transition-delay: var(--scroll-delay, 0ms);
+/* Foto hero bergerak perlahan */
+.hero-photo {
+  animation: heroPhotoDrift 18s ease-in-out infinite alternate;
+  will-change: background-position;
 }
 
-.hero-photo,
+@keyframes heroPhotoDrift {
+  from {
+    background-position: 48% 50%;
+  }
+
+  to {
+    background-position: 53% 50%;
+  }
+}
+
+/* Animasi lembut pada kartu */
+.service-card,
+.inspiration-tile {
+  transition:
+    transform 350ms cubic-bezier(.2, .65, .25, 1),
+    box-shadow 350ms ease;
+}
+
+.service-card:hover,
+.inspiration-tile:hover {
+  transform: translateY(-5px);
+}
+
+/* Foto sedikit membesar ketika disentuh atau di-hover */
 .service-image,
 .inspiration-photo,
 .about-art-image {
-  transition:
-    transform 800ms cubic-bezier(.2, .65, .25, 1),
-    filter 500ms ease;
+  transition: transform 650ms cubic-bezier(.2, .65, .25, 1);
 }
 
 .service-card:hover .service-image,
 .inspiration-tile:hover .inspiration-photo {
-  transform: scale(1.02);
-  filter: saturate(1.04);
+  transform: scale(1.035);
 }
 
+/* Tombol terasa lebih responsif */
+.button,
+.nav-cta,
+.floating-whatsapp {
+  transition:
+    transform 250ms ease,
+    background-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.button:hover,
+.nav-cta:hover {
+  transform: translateY(-2px);
+}
+
+/* Hormati pengaturan pengurangan animasi */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 
-  .js-scroll .hero-content,
-  .js-scroll .hero-visual,
-  .js-scroll .section-heading,
-  .js-scroll .service-card,
-  .js-scroll .inspiration-tile,
-  .js-scroll .about-content,
-  .js-scroll .about-art,
-  .js-scroll .contact-copy,
-  .js-scroll .contact-form-wrap {
-    opacity: 1;
+  .service-card:hover,
+  .inspiration-tile:hover,
+  .button:hover,
+  .nav-cta:hover,
+  .floating-whatsapp:hover {
     transform: none;
-    transition: none;
-  }
-
-  .hero-photo,
-  .service-image,
-  .inspiration-photo,
-  .about-art-image {
-    transition: none;
   }
 }

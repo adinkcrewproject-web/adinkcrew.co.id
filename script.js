@@ -45,7 +45,7 @@ if (inquiryForm) {
 }
 
 
-/* ADINK CREW — Scroll Reveal */
+/* ADINK CREW — Scroll Reveal FIX */
 
 (() => {
   const reduceMotion = window.matchMedia(
@@ -77,20 +77,7 @@ if (inquiryForm) {
     return;
   }
 
-  document.documentElement.classList.add('js-scroll');
-
-  [
-    '.service-card',
-    '.inspiration-tile'
-  ].forEach(selector => {
-    document.querySelectorAll(selector).forEach((element, index) => {
-      element.style.setProperty(
-        '--scroll-delay',
-        `${Math.min(index * 100, 200)}ms`
-      );
-    });
-  });
-
+  /* Aktifkan efek setelah elemen dan observer siap */
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -99,9 +86,22 @@ if (inquiryForm) {
       }
     });
   }, {
-    threshold: 0.08,
-    rootMargin: '0px 0px -5% 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -3% 0px'
   });
 
+  /* Atur jeda kartu sebelum animasi dimulai */
+  document.querySelectorAll(
+    '.service-card, .inspiration-tile'
+  ).forEach((element, index) => {
+    element.style.setProperty(
+      '--scroll-delay',
+      `${Math.min(index * 100, 200)}ms`
+    );
+  });
+
+  /* Amati elemen sebelum mengaktifkan CSS penyembunyi */
   elements.forEach(element => observer.observe(element));
+
+  document.documentElement.classList.add('js-scroll');
 })();

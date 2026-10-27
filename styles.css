@@ -147,151 +147,63 @@ button, .button, .nav-cta, .floating-whatsapp, .main-nav a { -webkit-tap-highlig
 }
 
 
-/* ADINK CREW — Premium Motion tanpa efek loading */
+/* ADINK CREW — Unified Premium Motion */
 
-/* Pastikan seluruh konten langsung terlihat */
-.hero-content,
-.hero-visual,
-.section-heading,
-.service-card,
-.inspiration-tile,
-.about-content,
-.about-art,
-.contact-copy,
-.contact-form-wrap {
-  opacity: 1;
-  transform: none;
-}
-
-/* Foto hero bergerak perlahan */
+/* Hero: gerakan foto lebih mudah terlihat */
 .hero-photo {
-  animation: heroPhotoDrift 18s ease-in-out infinite alternate;
-  will-change: background-position;
-}
-
-@keyframes heroPhotoDrift {
-  from {
-    background-position: 48% 50%;
-  }
-
-  to {
-    background-position: 53% 50%;
-  }
-}
-
-/* Animasi lembut pada kartu */
-.service-card,
-.inspiration-tile {
-  transition:
-    transform 350ms cubic-bezier(.2, .65, .25, 1),
-    box-shadow 350ms ease;
-}
-
-.service-card:hover,
-.inspiration-tile:hover {
-  transform: translateY(-5px);
-}
-
-/* Foto sedikit membesar ketika disentuh atau di-hover */
-.service-image,
-.inspiration-photo,
-.about-art-image {
-  transition: transform 650ms cubic-bezier(.2, .65, .25, 1);
-}
-
-.service-card:hover .service-image,
-.inspiration-tile:hover .inspiration-photo {
-  transform: scale(1.035);
-}
-
-/* Tombol terasa lebih responsif */
-.button,
-.nav-cta,
-.floating-whatsapp {
-  transition:
-    transform 250ms ease,
-    background-color 250ms ease,
-    box-shadow 250ms ease;
-}
-
-.button:hover,
-.nav-cta:hover {
-  transform: translateY(-2px);
-}
-
-/* Hormati pengaturan pengurangan animasi */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-
-  .service-card:hover,
-  .inspiration-tile:hover,
-  .button:hover,
-  .nav-cta:hover,
-  .floating-whatsapp:hover {
-    transform: none;
-  }
-}
-
-
-/* ADINK CREW — Premium Motion v2 */
-
-/* Gerakan halus pada foto utama */
-.hero-photo {
-  animation: adinkHeroDrift 20s ease-in-out infinite alternate;
+  animation: adinkHeroDrift 16s ease-in-out infinite alternate;
   will-change: background-position;
 }
 
 @keyframes adinkHeroDrift {
-  from {
-    background-position: 47% 50%;
-  }
-  to {
-    background-position: 53% 50%;
-  }
+  from { background-position: 42% 50%; }
+  to   { background-position: 58% 50%; }
 }
 
-/* Kartu bergerak lembut saat diarahkan */
+/* Kartu: naik halus saat hover */
 .service-card,
 .inspiration-tile {
-  transition: transform 400ms ease, box-shadow 400ms ease;
+  transition: transform 350ms ease, box-shadow 350ms ease;
 }
 
 .service-card:hover,
 .inspiration-tile:hover {
-  transform: translateY(-7px);
+  transform: translateY(-6px);
 }
 
-/* Efek zoom foto */
+/* Foto: zoom pada gambar latar, bukan kotaknya */
 .service-image,
-.inspiration-photo,
-.about-art-image {
-  overflow: hidden;
-  transition: transform 700ms ease, filter 500ms ease;
+.inspiration-photo {
+  background-size: 100% 100%;
+  transition: background-size 600ms ease, filter 500ms ease;
 }
 
 .service-card:hover .service-image,
 .inspiration-tile:hover .inspiration-photo {
-  transform: scale(1.04);
-  filter: saturate(1.06);
+  background-size: 108% 108%;
+  filter: saturate(1.08);
 }
 
-/* Garis pemisah bagian tampil lebih elegan */
-.process-grid > div {
-  transition: border-color 350ms ease, transform 350ms ease;
+/* Scroll: bagian muncul dengan lembut, tanpa menyembunyikan konten */
+.intro,
+.services,
+.inspiration,
+.about,
+.process,
+.contact {
+  transition: box-shadow 700ms ease;
 }
 
-.process-grid > div:hover {
-  border-color: var(--wood);
-  transform: translateY(-3px);
+.intro.section-in-view,
+.services.section-in-view,
+.inspiration.section-in-view,
+.about.section-in-view,
+.process.section-in-view,
+.contact.section-in-view {
+  box-shadow: inset 0 1px 0 rgba(154, 121, 89, 0.12);
 }
 
-/* Animasi tidak aktif jika pengguna membatasinya */
+/* Aksesibilitas */
 @media (prefers-reduced-motion: reduce) {
   .hero-photo {
     animation: none !important;
@@ -300,15 +212,12 @@ button, .button, .nav-cta, .floating-whatsapp, .main-nav a { -webkit-tap-highlig
   .service-card,
   .inspiration-tile,
   .service-image,
-  .inspiration-photo,
-  .about-art-image,
-  .process-grid > div {
+  .inspiration-photo {
     transition: none !important;
   }
 
   .service-card:hover,
-  .inspiration-tile:hover,
-  .process-grid > div:hover {
+  .inspiration-tile:hover {
     transform: none;
   }
 }

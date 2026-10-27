@@ -237,3 +237,78 @@ button, .button, .nav-cta, .floating-whatsapp, .main-nav a { -webkit-tap-highlig
     transform: none;
   }
 }
+
+
+/* ADINK CREW — Premium Motion v2 */
+
+/* Gerakan halus pada foto utama */
+.hero-photo {
+  animation: adinkHeroDrift 20s ease-in-out infinite alternate;
+  will-change: background-position;
+}
+
+@keyframes adinkHeroDrift {
+  from {
+    background-position: 47% 50%;
+  }
+  to {
+    background-position: 53% 50%;
+  }
+}
+
+/* Kartu bergerak lembut saat diarahkan */
+.service-card,
+.inspiration-tile {
+  transition: transform 400ms ease, box-shadow 400ms ease;
+}
+
+.service-card:hover,
+.inspiration-tile:hover {
+  transform: translateY(-7px);
+}
+
+/* Efek zoom foto */
+.service-image,
+.inspiration-photo,
+.about-art-image {
+  overflow: hidden;
+  transition: transform 700ms ease, filter 500ms ease;
+}
+
+.service-card:hover .service-image,
+.inspiration-tile:hover .inspiration-photo {
+  transform: scale(1.04);
+  filter: saturate(1.06);
+}
+
+/* Garis pemisah bagian tampil lebih elegan */
+.process-grid > div {
+  transition: border-color 350ms ease, transform 350ms ease;
+}
+
+.process-grid > div:hover {
+  border-color: var(--wood);
+  transform: translateY(-3px);
+}
+
+/* Animasi tidak aktif jika pengguna membatasinya */
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo {
+    animation: none !important;
+  }
+
+  .service-card,
+  .inspiration-tile,
+  .service-image,
+  .inspiration-photo,
+  .about-art-image,
+  .process-grid > div {
+    transition: none !important;
+  }
+
+  .service-card:hover,
+  .inspiration-tile:hover,
+  .process-grid > div:hover {
+    transform: none;
+  }
+}

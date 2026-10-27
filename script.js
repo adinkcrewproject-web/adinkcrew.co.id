@@ -43,3 +43,65 @@ if (inquiryForm) {
     window.open(url, '_blank', 'noopener,noreferrer');
   });
 }
+
+
+/* ADINK CREW — Scroll Reveal */
+
+(() => {
+  const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  const selectors = [
+    '.hero-content',
+    '.hero-visual',
+    '.section-heading',
+    '.service-card',
+    '.inspiration-tile',
+    '.about-content',
+    '.about-art',
+    '.contact-copy',
+    '.contact-form-wrap'
+  ];
+
+  const elements = [
+    ...new Set(
+      selectors.flatMap(selector =>
+        [...document.querySelectorAll(selector)]
+      )
+    )
+  ];
+
+  if (!elements.length || reduceMotion ||
+      !('IntersectionObserver' in window)) {
+    return;
+  }
+
+  document.documentElement.classList.add('js-scroll');
+
+  [
+    '.service-card',
+    '.inspiration-tile'
+  ].forEach(selector => {
+    document.querySelectorAll(selector).forEach((element, index) => {
+      element.style.setProperty(
+        '--scroll-delay',
+        `${Math.min(index * 100, 200)}ms`
+      );
+    });
+  });
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -5% 0px'
+  });
+
+  elements.forEach(element => observer.observe(element));
+})();
